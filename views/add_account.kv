@@ -1,0 +1,102 @@
+#:kivy 2.0
+#:kivy 2.0
+
+<AddAccountScreen>:
+    db_console:db_console
+    delete_button:delete_button
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "resources/background/app_bg_3.png"
+
+    FloatLayout:
+        Label:
+            id: db_log
+            size_hint_y: None
+            font_size: "17sp"
+            pos_hint: {"y":0.87, "left":0.500}
+            text: ''
+            color: 0,0,0,0.8
+            bold: "true"
+        TextInput:
+            id: add_account_n
+            hint_text: 'page_name / Dev.bg = Dev_bg'
+            pos_hint: {"y":0.81, "right":0.380}
+            multiline: False
+            size_hint: 0.27,None
+            height: "35dp"
+        TextInput:
+            id: add_account_id
+            hint_text: 'Account ID'
+            pos_hint: {"y":0.81, "right":0.670}
+            multiline: False
+            size_hint: 0.25,None
+            height: "35dp"
+        Button:
+            text: "Insert Account"
+            size_hint: 0.18,None
+            height: "35dp"
+            pos_hint:{"y":0.81, "right":0.875}
+            on_release:root.add_account()
+        TextInput:
+            id: remove_account
+            hint_text: 'Account ID'
+            pos_hint: {"y":0.65, "right":0.760}
+            multiline: False
+            size_hint: 0.24,None
+            height: "35dp"
+        Button:
+            text: "Remove Account"
+            size_hint: 0.16,None
+            height: "35dp"
+            pos_hint:{"y":0.65, "right":0.935}
+            on_release:root.remove_account()
+        TextInput:
+            id: find_account
+            hint_text: 'Account Name Contains'
+            pos_hint: {"y":0.65, "right":0.300}
+            multiline: False
+            size_hint: 0.24,None
+            height: "35dp"
+        Button:
+            text: "Find Account"
+            size_hint: 0.15,None
+            height: "35dp"
+            pos_hint:{"y":0.65, "right":0.465}
+            on_release:root.find_account()
+        TextInput:
+            id: db_console
+            hint_text: 'Outputs print here'
+            pos_hint: {"y":0.12, "right":0.680}
+            multiline: True
+            size_hint: 0.41,0.47
+            height: "35dp"
+        ToggleButton:
+            id: toggler_delete
+            text: "DELETE OFF"
+            size_hint: 0.10,None
+            height: "35dp"
+            font_size: "13sp"
+            pos_hint:{"y":0.12, "right":0.920} 
+            on_state: root.delete_button.disabled = False if toggler_delete.state == "down" else True
+            on_state: toggler_delete.text = "DELETE ON" if toggler_delete.state == "down" else "DELETE OFF"
+        Button:
+            id: delete_button
+            disabled: True
+            text: "Remove All Accounts"
+            size_hint: 0.22,None
+            height: "35dp"
+            pos_hint:{"y":0.02, "right":0.982}
+            on_release: root.delete_all()
+            on_release: db_console.text = ""
+        Button:
+            text: "Back"
+            size_hint: 0.18,None
+            height: "35dp"
+            pos_hint:{"y":0.02, "right":0.20}
+            on_press: 
+                app.root.current = "main_menu_screen"
+                root.manager.transition.direction = "right"    
+        
+                

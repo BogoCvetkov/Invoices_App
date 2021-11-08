@@ -1,0 +1,271 @@
+#:kivy 2.0
+
+<ListButton@Button>
+    source:None
+    size_hint_y: None
+    text:""
+    height: 40
+    background_color: 0.46,0.6,0.16,1
+    
+    
+
+
+<CustomInvoicesScreen>:
+    added_accounts:added_accounts
+    # keyword_menu:keyword_menu
+    page_menu_inpt:page_menu_inpt
+    account_menu_btn:account_menu_btn
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "views/resources/background/yellow_bg.png"
+    GridLayout:
+        cols:1
+        rows:7
+        row_force_default:True
+        row_default_height:50
+        padding:30,10,30,0
+        spacing:5
+        AnchorLayout:
+            padding: 0,10,0,40
+            anchor_x: "right"
+            Label:
+                text: "Invoices App"
+                color: 0,0,0,1
+                bold: "true"
+                font_size: "30sp"
+        
+        GridLayout:
+            id:"login_to_fb"
+            cols:1
+            Button:
+                text: "Login to Facebook"
+                size_hint: 0.3,None
+                height: "35dp"
+                on_release: root.login()
+            
+
+        GridLayout:
+            id: page_menu_inpt
+            cols:4
+            spacing: 20
+            TextInput:
+                id: account_name
+                hint_text: 'account_name'
+                multiline: False
+                size_hint: 1,None
+                height: "35dp"
+            TextInput:
+                id: account_id
+                hint_text: 'account id'
+                multiline: False
+                size_hint: 1,None
+                height: "35dp"
+            Button:
+                text: "Set Period"
+                size_hint: 0.4,None
+                height: "35dp"
+                on_release: app.show_date_picker()
+            # Spinner:
+            #     id: scroll
+            #     size_hint: None, None
+            #     size: 100, 35
+            #     pos_hint: {'center': (.5, .5)}
+            #     sync_height: True
+            #     text: 'Scrolls'
+            #     values: '3', '4', '5', '6'
+            #     on_text:
+            #         print("The spinner {} has text {}".format(self, self.text)) 
+            # Spinner:
+            #     id: country
+            #     size_hint: None, None
+            #     size: 100, 35
+            #     pos_hint: {'center': (.5, .5)}
+            #     sync_height: True
+            #     text: 'Country'
+            #     values: 'ALL', 'BG', 'GB', 'US', 'DE', "RU", "RO", "GR", "TR", "PL", "IT", "IL", "HU", "CA", "AU"
+            #     on_text:
+            #         print("The spinner {} has text {}".format(self, self.text)) 
+
+                
+        GridLayout:
+            id: account_menu_btn
+            cols:4
+            spacing: 20
+            Button:
+                text: "Add to List"
+                size_hint: 0.3,None
+                height: "35dp"
+                on_press:root.add_to_list()
+                on_release: account_name.text=""
+            Button:
+                text: "Clear List"
+                size_hint: 0.3,None
+                height: "35dp"
+                on_release: root.clear_list()
+            Button:
+                text: "Get from DataBase"
+                size_hint: 0.3,None
+                height: "35dp"
+                on_release: root.add_from_db()
+            Button:
+                text: "Scrape Account(s)"
+                size_hint: 0.45,None
+                height: "35dp"  
+                on_release: root.get_invoices()
+        # GridLayout:
+        #     cols:2
+        #     padding:0,35,0,20
+        #     AnchorLayout:
+        #         padding: 0,10,0,40
+        #         anchor_x: "right"
+        #         Label:
+        #             text: "Keyword Capture"
+        #             color: 0,0,0,1
+        #             bold: "true"
+        #             font_size: "20sp"
+        #     AnchorLayout:
+        #         padding: 0,10,0,40
+        #         anchor_x: "left"
+        #         ToggleButton:
+        #             id: toggler
+        #             text: "Turn ON"
+        #             size_hint: 0.25,None
+        #             height: "35dp"   
+        #             on_state: root.keyword_menu.disabled = False if toggler.state == "down" else True
+        #             on_state: root.account_menu_btn.disabled = True if toggler.state == "down" else False
+        #             on_state: root.page_menu_inpt.disabled = True if toggler.state == "down" else False
+
+                    
+                 
+        # GridLayout:
+        #     id: keyword_menu
+        #     cols:4
+        #     spacing: 20
+        #     disabled:True
+        #     Spinner:
+        #         id: key_scroll
+        #         size_hint: None, None
+        #         size: 100, 35
+        #         pos_hint: {'center': (.5, .5)}
+        #         sync_height: True
+        #         text: 'Scrolls'
+        #         values: '3', '4', '5', '6'
+        #         on_text:
+        #             print("The spinner {} has text {}".format(self, self.text)) 
+        #     Spinner:
+        #         id: key_country
+        #         size_hint: None, None
+        #         size: 100, 35
+        #         pos_hint: {'center': (.5, .5)}
+        #         sync_height: True
+        #         text: 'Country'
+        #         values: 'ALL', 'BG', 'GB', 'US', 'DE', "RU", "RO", "GR", "TR", "PL", "IT", "IL", "HU", "CA", "AU"
+        #         on_text:
+        #             print("The spinner {} has text {}".format(self, self.text)) 
+        #     TextInput:
+        #         id: keyword
+        #         hint_text: 'type a keyword'
+        #         multiline: False
+        #         size_hint: 1,None
+        #         height: "35dp"
+        #     Button:
+        #         text: "Capture"
+        #         size_hint: 0.45,None
+        #         height: "35dp"  
+        #         on_release: root.capture_keyword()  
+        GridLayout:
+            cols:2
+            spacing:10
+            Label:
+                text: "Accounts List"
+                color: 0,0,0,1
+                bold: "true"
+                font_size: "20sp"
+            Label:
+                text: "Status"
+                color: 0,0,0,1
+                bold: "true"
+                font_size: "20sp"
+        GridLayout:
+            row_default_height:180
+            cols:2
+            rows:2
+            spacing:10
+            padding:15,10,15,0
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                bar_color: 0.4,0.5,0.8,1
+                bar_width: 9
+                scroll_type: ['bars', 'content']
+                GridLayout:
+                    id: added_accounts
+                    cols:1
+                    spacing:8
+                    size_hint_y:None
+                    height:self.minimum_height        
+            ScrollView:
+                do_scroll_x: False
+                do_scroll_y: True
+                Label:
+                    id:scroll_two
+                    size_hint_y: None
+                    size: self.texture_size
+                    text: ''
+                    color: 1,0,0,1
+                    bold: "true"
+                    font_size: "18sp"
+    RelativeLayout:
+        Button:
+            text: "Back"
+            size_hint: 0.18,None
+            height: "35dp"
+            pos_hint:{"y":0.02, "right":0.20}
+            on_press: 
+                app.root.current = "main_menu_screen"
+                root.manager.transition.direction = "right"
+        # TextInput:
+        #     id: folder
+        #     hint_text: 'specify folder(optional)'
+        #     pos_hint: {"y":0.02, "right":0.560}
+        #     multiline: False
+        #     size_hint: 0.3,None
+        #     height: "35dp"
+        # Spinner:
+        #     id: quality
+        #     size_hint: None, None
+        #     size: 58, 35
+        #     pos_hint: {"y":0.02, "right":0.652}
+        #     sync_height: True
+        #     text: '100'
+        #     values: '100', '95', '90', '85','80','70'
+        #     on_text:
+        #         print("The spinner {} has text {}".format(self, self.text)) 
+        Button:
+            text: "Save Table"
+            size_hint: 0.15,None
+            height: "35dp"  
+            pos_hint:{"y":0.02, "right":0.98}
+            on_release: root.close_browser()
+        # Button:
+        #     text: "Convert to PDF"
+        #     size_hint: 0.15,None
+        #     height: "35dp"  
+        #     pos_hint:{"y":0.02, "right":0.82}
+        #     on_release: root.test()
+    FloatLayout:
+        Label:
+            id:period_info
+            size_hint_y: None
+            font_size: "17sp"
+            color: 0,0,0,0.8
+            bold: "true"
+            text:""
+            pos_hint:{"y":-0.027, "right":0.925}
+
+
+            
+            
+                

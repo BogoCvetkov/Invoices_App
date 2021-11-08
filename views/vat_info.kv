@@ -1,0 +1,55 @@
+#:kivy 2.0
+#:kivy 2.0
+
+<VATScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "views/resources/background/yellow_bg.png"
+    FloatLayout:
+        Label:
+            id: vat_log
+            size_hint_y: None
+            font_size: "17sp"
+            pos_hint: {"y":0.78, "left":0.500}
+            text: ''
+            color: 0,0,0,0.8
+            bold: "true"
+        TextInput:
+            id: vat_info
+            hint_text: 'VAT Info'
+            pos_hint: {"y":0.70, "right":0.710}
+            multiline: False
+            size_hint: 0.4,None
+            height: "35dp"
+        # TextInput:
+        #     id: email_body
+        #     hint_text: 'Email Body Template'
+        #     pos_hint: {"y":0.25, "right":0.720}
+        #     multiline: True
+        #     size_hint: 0.4,0.4
+        #     height: "35dp"
+        Button:
+            text: "Save to Database"
+            size_hint: 0.4,None
+            height: "35dp"  
+            pos_hint:{"y":0.55, "right":0.710}
+            on_release: root.add_vat()
+        Button:
+            text: "Back"
+            size_hint: 0.18,None
+            height: "35dp"
+            pos_hint:{"y":0.02, "right":0.20}
+            on_press: 
+                app.root.current = "main_menu_screen"
+                root.manager.transition.direction = "right"
+        Button:
+            text: "Add Accounts"
+            size_hint: 0.18,None
+            height: "35dp"
+            pos_hint:{"y":0.02, "right":0.978}
+            on_press: 
+                app.root.current = "add_account_screen"
+                root.manager.transition.direction = "left"
+                

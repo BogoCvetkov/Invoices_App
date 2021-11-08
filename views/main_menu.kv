@@ -1,0 +1,85 @@
+#:kivy 2.0
+#: import RiseInTransition kivy.uix.screenmanager.RiseInTransition
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: import SlideTransition kivy.uix.screenmanager.SlideTransition
+#: import FallOutTransition kivy.uix.screenmanager.FallOutTransition
+#: import WipeTransition kivy.uix.screenmanager.WipeTransition
+#: import CardTransition kivy.uix.screenmanager.CardTransition
+
+<MenuButton@Button>
+    source:None
+    size_hint_x: None
+    width: capture_image.width
+    background_color: 0,0,1,0
+    Image:
+        id:capture_image
+        source: root.source
+        center_x: self.parent.center_x
+        center_y: self.parent.center_y
+        allow_stretch: "true"
+        width:359
+        height:70
+
+<MainMenuScreen>:
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "views/resources/background/yellow_bg.png"
+    GridLayout:
+        cols:1
+        padding:70,50
+        spacing:40
+        AnchorLayout:
+            anchor_x:"center"
+            MenuButton:
+                source:"views/resources/buttons/Manual.png"
+                on_press: self.source = "views/resources/buttons/Manual.png"
+                on_release: 
+                    app.root.current = "custom_invoices_screen"
+                    root.manager.transition.direction = "left"
+                    self.source = "views/resources/buttons/Manual.png"
+        AnchorLayout:
+            anchor_x:"center"
+            MenuButton:
+                source:"views/resources/buttons/VAT.png"
+                on_press: self.source = "views/resources/buttons/VAT.png"
+                on_release: 
+                    app.root.current = "vat_screen"
+                    root.manager.transition.direction = "left"
+                    self.source = "views/resources/buttons/VAT.png"
+        AnchorLayout:
+            anchor_x:"center"
+            MenuButton:
+                source:"views/resources/buttons/Accounts.png"
+                on_press: self.source = "views/resources/buttons/Accounts.png"
+                on_release: 
+                    app.root.current = "add_account_screen"
+                    root.manager.transition.direction = "left"
+                    self.source = "views/resources/buttons/Accounts.png"
+        AnchorLayout:
+            anchor_x:"center"
+            MenuButton:
+                source:"views/resources/buttons/FAST_FLOW.png"
+                on_press: self.source = "views/resources/buttons/FAST_FLOW.png"
+                on_release: 
+                    app.root.current = "fast_flow_screen"
+                    root.manager.transition.direction = "left"
+                    self.source = "views/resources/buttons/FAST_FLOW.png"
+
+
+
+<ScreenManager>:
+    transition: WipeTransition(duration=0.2)
+    MainMenuScreen:
+        name:"main_menu_screen"
+    CustomInvoicesScreen:
+        name:"custom_invoices_screen"
+    VATScreen:
+        name:"vat_screen"
+    AddAccountScreen:
+        name:"add_account_screen"
+    FastFlowScreen:
+        name:"fast_flow_screen"
+
+    

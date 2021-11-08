@@ -1,0 +1,11 @@
+/App_exe/build
+/App_exe/dist
+/copy_files_package/
+/Drivers/
+/ENV/
+/Invoices/
+/model/seed.py
+/security/.env
+/security/credentials.txt
+/test.py
+/.idea

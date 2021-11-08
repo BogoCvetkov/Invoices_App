@@ -1,0 +1,79 @@
+#:kivy 2.0
+#:kivy 2.0
+
+<FastFlowScreen>:
+    scroll_text:scroll_text
+    canvas.before:
+        Rectangle:
+            pos: self.pos
+            size: self.size
+            source: "views/resources/background/yellow_bg.png"
+    FloatLayout:
+        Label:
+            id:flow_log
+            size_hint_y: None
+            font_size: "20sp"
+            pos_hint: {"y":0.85, "left":0.500}
+            text: ''
+            color: 0,0,0,0.8
+            bold: "true"
+        Label:
+            size_hint_y: None
+            font_size: "30sp"
+            pos_hint: {"y":0.73, "left":0.500}
+            text: 'Fast Scrape Flow'
+            color: 0,0,0,0.8
+            bold: "true"
+        Button:
+            text: "Scrape All and Send"
+            size_hint: 0.3,None
+            height: "40dp"
+            font_size: 20
+            pos_hint:{"y":0.67, "right":0.550}
+            on_release: root.fast_scrape()
+        Button:
+            text: "Set Period"
+            size_hint: 0.2,None
+            pos_hint:{"y":0.674, "right":0.780}
+            height: "35dp"
+            on_release: app.show_date_picker()
+        Label:
+            size_hint_y: None
+            font_size: "20sp"
+            pos_hint: {"y":0.53, "left":0.500}
+            text: 'Status:'
+            color: 0,0,0,0.8
+            bold: "true"
+        ScrollView:
+            do_scroll_x: True
+            do_scroll_y: True
+            size_hint:None,None
+            bar_color: 0.4,0.5,0.8,1
+            bar_width: 9
+            scroll_type: ['bars', 'content']
+            pos_hint: {"y":0.08, "right":0.820}
+            height: 300
+            width: 500
+            Label:
+                id:scroll_text
+                size_hint_y:None
+                size: self.texture_size
+                text:  "Hello There Pretty Face\n\nLet's keep those invoices goin BaBe"
+                color: 0,0,0,0.7
+                bold: "true"
+        Label:
+            id:sent_label
+            size_hint_y: None
+            font_size: "20sp"
+            pos_hint: {"y":0.36, "right":0.630}
+            text: ''
+            color: 0,1,0,0.8
+            bold: "true"
+        Button:
+            text: "Back"
+            size_hint: 0.18,None
+            height: "35dp"
+            pos_hint:{"y":0.02, "right":0.20}
+            on_press: 
+                app.root.current = "main_menu_screen"
+                root.manager.transition.direction = "right"
