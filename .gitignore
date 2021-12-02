@@ -11,3 +11,4 @@
 /.idea
 /database.db
 /model/database.db
+/invoices.csv
