@@ -53,8 +53,8 @@ class ScrapeBot:
     def scrape_invoices_info(self):
         time.sleep(random.randint(7,12))
         try:
-            see_more = self.driver.find_element(By.XPATH, "//div[text()='See More']")
-            for n in range(2):
+            for n in range(3):
+                see_more = self.driver.find_element(By.XPATH, "//div[text()='See More']")
                 see_more.click()
                 time.sleep(3)
         except:
