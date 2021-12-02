@@ -52,6 +52,13 @@ class ScrapeBot:
     # This method is doing the scraping after the bot has logged in to Facebook.
     def scrape_invoices_info(self):
         time.sleep(random.randint(7,12))
+        try:
+            see_more = self.driver.find_element(By.XPATH, "//div[text()='See More']")
+            for n in range(2):
+                see_more.click()
+                time.sleep(3)
+        except:
+            pass
         parent_element = self.driver.find_element(By.XPATH,
                                              "//div[text()='Transaction ID']/parent::*/parent::*/parent::*/parent::*")
         child_element = parent_element.find_elements(By.XPATH, "./*")
