@@ -1,9 +1,10 @@
 <h1 align="center">
   <br>
-  <img src="https://res.cloudinary.com/dawb3psft/image/upload/v1647932180/Portfolio/xbot.png" alt="AdCaptureBot" width="300">
+  <img src="https://res.cloudinary.com/dawb3psft/image/upload/v1647978928/Portfolio/invoices.ico" alt="AdCaptureBot" width="150">
+  <br>InvoicesApp
 </h1>
 
-<h4 align="center">Python-Kivy App for automated monitoring of competitor's Facebook ads.</h4>
+<h4 align="center">Python-Kivy App for automating invoices extraction.</h4>
 
 <p align="center">
   <a href="https://img.shields.io/badge/Made%20with-Python-blue">
@@ -48,9 +49,10 @@
 
 ### Additional Libraries and Technologies
 <p>
-  <img src="https://img.shields.io/badge/Imaging-Pillow-green?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Tables-Pandas-green?style=for-the-badge">
   <img src="https://img.shields.io/badge/Web Scrape-Selenium-blue?style=for-the-badge">
   <img src="https://img.shields.io/badge/Packaging-PyInstaller-blue?style=for-the-badge">
+  <img src="https://img.shields.io/badge/Security-Fernet-blue?style=for-the-badge">
 </p>
 
 ## About The Project
@@ -63,26 +65,25 @@ So basically Facebook has a section - (https://www.facebook.com/ads/library) - w
 I wanted to create a solution that would be usefull to all my teammates and not just myself. That's why a simple script was not enough. So i had to create an app that **could be used by anyone and mainly non-coders**. This is how I came up with this project. It basically visits every competitor, scrolls trough all the ads, makes a screenshot, generates a PDF from all screenshots in the end and sends it on email.
 
 ## How To Use
-1. **Insert the Id's of the pages you would like to take screenshots of into the Database.**
-       ![](gifs/Insert_page.gif)
+1. **Insert the Id's of the ad accounts you would like to get the invoices of into the Database.**
+       ![](gifs/add_account.gif)
 
-2. **Add the email you'll be sending to.**
+2. **Add the VAT info.**
    - once inserted, the data is persisted in the app - so you don't have to configure it every time
-     ![](gifs/Insert_email.gif)
+     ![](gifs/vat_info.gif)
 
 3 **Choose your mode**
   * **Fully automated mode**
-    - If all you want to do is scrape the competitor pages in the database and send the generated PDF to the client - just use this mode.
+    - If you want to process all accounts in the database - use this method - runs the bot in a single click.
     
-      ![](gifs/fast_flow_2.gif)
+      ![](gifs/fast_invoice.gif)
       
   * **Manual mode**
-    - This is if you want to be more specific about the type of scraping that should be done - choosing a country, scroll depth, keyword searching, manually adding pages for single scraping.  
+    - Use this mode if you want to run the bot for specific accounts only, or when you want to manipulate the bot in real time.   
     
-      ![](gifs/manual_mode_2.gif)
+      ![](gifs/manual_invoice.gif)
     
     
-    - In this mode you can also make screenshots based on keywords insted of using specific pages.
 
 
 
