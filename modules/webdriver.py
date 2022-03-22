@@ -26,7 +26,7 @@ class ScrapeBot:
     # The time between each action is chosen randomly every time, so it resembles a real human behaviour.
     def login_to_fb(self, url, username, password , two_factor_key):
         self.driver.get(url)
-        policy_button = self.driver.find_element(By.CSS_SELECTOR, "button[data-testid='cookie-policy-dialog-accept-button']")
+        policy_button = self.driver.find_element(By.CSS_SELECTOR, "button[data-testid='cookie-policy-manage-dialog-accept-button']")
         time.sleep(random.randint(1,4))
         policy_button.click()
         time.sleep(random.randint(2, 4))
@@ -53,14 +53,14 @@ class ScrapeBot:
     def scrape_invoices_info(self):
         time.sleep(random.randint(7,12))
         try:
-            for n in range(3):
+            for n in range(5):
                 see_more = self.driver.find_element(By.XPATH, "//div[text()='See More']")
                 see_more.click()
                 time.sleep(3)
         except:
             pass
         parent_element = self.driver.find_element(By.XPATH,
-                                             "//div[text()='Transaction ID']/parent::*/parent::*/parent::*/parent::*")
+                                             "//div[text()='Transaction ID']/parent::*/parent::*/parent::*")
         child_element = parent_element.find_elements(By.XPATH, "./*")
         info = []
         for el in child_element:
