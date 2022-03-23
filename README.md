@@ -62,7 +62,7 @@ This was another project that is inspired by **a real-world challenge** that we 
 At the end of each month all of the invoices for the money spend on advertising had to be downloaded and ordered based on the payment cards being used.There are tens of different ad accounts - each receiving multiple invoices ( depending on the advertising activity for the month). So each invoice has to be downloaded separately and so the cumulative **sum of invoices per month is in the range between 120 and 230**. This **means between 4-7 hours of wasted time** at the end of each month.
 
 ### And the Solution
-I wanted to create a solution that would be **usefull to all my teammates** and not just myself. That's why a simple script was not enough. So I had to create an app that **could be used by anyone and mainly non-coders**. This is how I came up with this project. It basically visits every single ad account, scrapes the datails of every invoice for that account and then injects that into an Excel File, creating a spreadsheet for every ad account.
+I wanted to create a solution that would be **usefull to all my teammates** and not just myself. That's why a simple script was not enough. So I had to create an app that **could be used by anyone and mainly non-coders**. This is how I came up with this project. It basically visits every single ad account, scrapes the datails of every invoice for that account and then injects that into an Excel File, creating a spreadsheet for the separate ad account.
 
 * #### It takes the bot 10 min. vs 4-7 hours for a person from the team
 
