@@ -11,14 +11,14 @@
     <img src="https://img.shields.io/badge/Made%20with-Python-blue"
          alt="Gitter">
   </a>
-  <a href="https://img.shields.io/tokei/lines/github/Bogo56/AdCapture_bot">
-      <img src="https://img.shields.io/tokei/lines/github/Bogo56/AdCapture_bot">
+  <a href="https://img.shields.io/tokei/lines/github/Bogo56/Invoices_App">
+      <img src="https://img.shields.io/tokei/lines/github/Bogo56/Invoices_App">
   </a>
-  <a href="https://img.shields.io/github/languages/count/Bogo56/AdCapture_bot?color=f">
-    <img src="https://img.shields.io/github/languages/count/Bogo56/AdCapture_bot?color=f">
+  <a href="https://img.shields.io/github/languages/count/Bogo56/Invoices_App?color=f">
+    <img src="https://img.shields.io/github/languages/count/Bogo56/Invoices_App?color=f">
   </a>
-  <a href="https://badgen.net/github/commits/Bogo56/AdCapture_bot">
-    <img src="https://badgen.net/github/commits/Bogo56/AdCapture_bot">
+  <a href="https://badgen.net/github/commits/Bogo56/Invoices_App">
+    <img src="https://badgen.net/github/commits/Bogo56/Invoices_App">
   </a>
 </p>
 
